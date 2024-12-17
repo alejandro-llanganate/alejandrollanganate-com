@@ -3,12 +3,12 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 
-// Fecha objetivo: próximo miércoles a las 01:00 AM
+// Fecha objetivo: próximo miércoles a las 10:00 PM
 const targetDateStr = new Date();
 targetDateStr.setDate(
   targetDateStr.getDate() + ((3 + 7 - targetDateStr.getDay()) % 7)
 );
-targetDateStr.setHours(1, 0, 0, 0);
+targetDateStr.setHours(22, 0, 0, 0);
 ---
 
 <Layout title="Cursos de Obsidian">
