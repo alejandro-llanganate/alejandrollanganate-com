@@ -1,10 +1,23 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import icon from "astro-icon";
+import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 
+// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), mdx(), sitemap(), icon()],
   site: 'https://www.alejandrollanganate.com',
+  base: '/',
+  output: 'static',
+  vite: {
+    build: {
+      charset: 'utf8',
+    },
+    ssr: {
+      noExternal: ['three'],
+    },
+    optimizeDeps: {
+      include: ['three'],
+    },
+  },
+  integrations: [
+    tailwind(),
+  ],
 });
