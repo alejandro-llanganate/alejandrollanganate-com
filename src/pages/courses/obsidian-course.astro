@@ -136,7 +136,7 @@ const courseData = {
                 "Obtener un conocimiento elemental de Obsidian para la gestión de conocimientos, toma de notas y organización de las mismas.",
                 "Optimizar el flujo de trabajo con Obsidian, ahorrando tiempo y mejorando tus apuntes.",
                 "Aplicar buenas prácticas para tomar notas y tener un mejor aprendizaje.",
-                "Aprender los complementos de la comunidad más importantes para el estudio con Obsidian."
+                "Aprender los complementos de la comunidad más importantes para el estudio con Obsidian.",
               ].map((item) => (
                 <div class="learning-item">
                   <span class="check-icon">✓</span>
@@ -151,14 +151,14 @@ const courseData = {
       <!-- Espacio reservado para la tarjeta (1/4 del ancho) -->
       <div class="sidebar-space"></div>
     </div>
-
     <div class="course-content-section mb-16">
-      <h2 class="section-title">Contenido del curso</h2>
+      <h2 class="section-title text-xl font-bold mb-4">Contenido del curso</h2>
       <div class="course-modules">
         {
           [
             {
-              title: "Sección 1: Introducción a la toma de apuntes inteligentes y Obsidian",
+              title:
+                "Sección 1: Introducción a la toma de apuntes inteligentes y Obsidian",
               lessons: [
                 "Introducción al módulo - Note-taking - Tomar apuntes",
                 "Mitos y verdades de tomar apuntes",
@@ -166,20 +166,20 @@ const courseData = {
                 "Idea principal e idea secundaria",
                 "Ejemplo de una nota Cornell",
                 "Zettelkasten",
-                "Listos para Obsidian"
+                "Listos para Obsidian",
               ],
               duration: "11 min",
-              lectureCount: 7
+              lectureCount: 7,
             },
             {
               title: "Sección 2: Instalación de Obsidian",
               lessons: [
                 "Instalación de Obsidian en Mac",
                 "Instalación de Obsidian en Windows",
-                "Instalación de Obsidian en Linux (Ubuntu)"
+                "Instalación de Obsidian en Linux (Ubuntu)",
               ],
               duration: "3 min",
-              lectureCount: 3
+              lectureCount: 3,
             },
             {
               title: "Sección 3: Sintaxis básica",
@@ -199,10 +199,10 @@ const courseData = {
                 "Callouts",
                 "Crear un template",
                 "Backlinks",
-                "Insertar un recurso de YouTube o Twitter"
+                "Insertar un recurso de YouTube o Twitter",
               ],
               duration: "1 hr 10 min",
-              lectureCount: 15
+              lectureCount: 15,
             },
             {
               title: "Sección 4: Manejo de archivos",
@@ -211,10 +211,10 @@ const courseData = {
                 "Incrustar un PDF en una nota",
                 "Consejos para subrayar correctamente",
                 "Crear anotaciones en PDFs",
-                "Spreadsheets"
+                "Spreadsheets",
               ],
               duration: "25 min",
-              lectureCount: 5
+              lectureCount: 5,
             },
             {
               title: "Sección 5: Mapas conceptuales",
@@ -223,10 +223,10 @@ const courseData = {
                 "Enhancing mindmap",
                 "Excalidraw",
                 "Introducción a Canvas",
-                "Ejemplo de un Canvas con notas"
+                "Ejemplo de un Canvas con notas",
               ],
               duration: "20 min",
-              lectureCount: 5
+              lectureCount: 5,
             },
             {
               title: "Sección 6: Vista de grafo",
@@ -234,52 +234,55 @@ const courseData = {
                 "Introducción a la vista de grafo",
                 "Configuración básica de la vista de grafo",
                 "Profundizando en la vista de grafo",
-                "Personalización"
+                "Personalización",
               ],
               duration: "15 min",
-              lectureCount: 4
+              lectureCount: 4,
             },
             {
               title: "Sección 7: Obsidian Sync y Obsidian Publish",
               lessons: [
                 "Opciones de pago de Obsidian",
                 "Obsidian Sync",
-                "Obsidian Publish"
+                "Obsidian Publish",
               ],
               duration: "10 min",
-              lectureCount: 3
+              lectureCount: 3,
             },
             {
               title: "Sección 8: Bonus: Obsidian para developers",
               lessons: [
                 "Insertar código en nuestras notas",
-                "Diagramas UML con Mermaid"
+                "Diagramas UML con Mermaid",
               ],
               duration: "8 min",
-              lectureCount: 2
-            }
-          ].map((module) => (
-            <details class="module-accordion">
-              <summary class="module-header">
+              lectureCount: 2,
+            },
+          ].map((module, index) => (
+            <div class="module-accordion border p-4 rounded-lg mb-2">
+              <div class="module-header flex justify-between items-start cursor-pointer">
                 <div class="module-title-section">
-                  <h3>{module.title}</h3>
-                  <div class="module-meta">
+                  <h3 class="font-semibold text-left">{module.title}</h3>
+                  <div class="module-meta text-sm">
                     <span>{module.lectureCount} clases</span>
                     <span>•</span>
                     <span>{module.duration}</span>
                   </div>
                 </div>
                 <span class="accordion-icon">▼</span>
-              </summary>
-              <div class="module-content">
-                {module.lessons.map((lesson) => (
-                  <div class="lesson-item">
-                    <span class="lesson-icon">📝</span>
-                    <span>{lesson}</span>
-                  </div>
-                ))}
               </div>
-            </details>
+
+              <div class="module-content mt-2">
+                <div role="region">
+                  {module.lessons.map((lesson, lessonIndex) => (
+                    <div class="lesson-item py-1">
+                      <span class="lesson-icon">📝</span>
+                      <span>{lesson}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))
         }
       </div>
@@ -321,10 +324,9 @@ const courseData = {
             </div>
           </div>
           <div class="coupon-footer">
-              <a
-               href={courseUrl.discountUrl}>
-            <button class="apply-btn">Aplicar Descuento</button>
-                </a>
+            <a href={courseUrl.discountUrl}>
+              <button class="apply-btn">Aplicar Descuento</button>
+            </a>
           </div>
         </div>
       </div>
@@ -366,10 +368,9 @@ const courseData = {
       }
     });
 
-
     // Aplicar cupón
     applyBtn?.addEventListener("click", () => {
-        //aqui la logica adicional o redirigir a la url con el cupon
+      //aqui la logica adicional o redirigir a la url con el cupon
       closeModal();
     });
 
@@ -618,73 +619,55 @@ const courseData = {
   }
 
   /* ==========================================
-       SECCIÓN: CONTENIDO DEL CURSO
+       CONTENIDO DEL CURSO
     ========================================== */
-    .course-modules {
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
   .module-accordion {
-    border-bottom: 1px solid #e2e8f0;
-    &:last-child {
-      border-bottom: none;
-    }
+    border: 1px solid #ccc; /* Borde gris claro */
+    padding: 16px; /* Padding de 16px en todos los lados */
+    border-radius: 12px; /* Bordes redondeados */
+    margin-bottom: 8px; /* Margen inferior */
+    background-color: #fff; /* Fondo blanco */
   }
 
   .module-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    cursor: pointer;
-    background: white;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background: #f8fafc;
-    }
+    display: flex; /* Alineación flexible de elementos */
+    justify-content: space-between; /* Justificar contenido espacio entre */
+    align-items: flex-start; /* Alineación de los elementos al inicio */
+    cursor: pointer; /* Cursor de puntero para indicar interactividad */
   }
 
   .module-title-section h3 {
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-    align-items: start;
+    font-size: 1.25rem; /* Tamaño de fuente del título */
+    font-weight: 600; /* Peso de la fuente semibold */
+    text-align: left; /* Alineación de texto a la izquierda */
+    margin: 0; /* Sin margen para el título */
   }
 
   .module-meta {
-    display: flex;
-    gap: 0.5rem;
-    color: #64748b;
-    font-size: 0.9rem;
+    font-size: 0.875rem; /* Tamaño pequeño para metadatos */
+    color: #666; /* Color gris para texto */
+    display: flex; /* Flexbox para alinear los elementos */
+    gap: 4px; /* Espacio entre los elementos */
   }
 
   .accordion-icon {
-    color: #64748b;
-    transition: transform 0.3s ease;
-  }
-
-  details[open] .accordion-icon {
-    transform: rotate(180deg);
+    font-size: 1rem; /* Tamaño adecuado para el icono */
+    transition: transform 0.3s ease; /* Transición suave para transformar */
   }
 
   .module-content {
-    background: #f8fafc;
-    padding: 1rem 1.5rem;
+    margin-top: 8px; /* Margen superior */
+    display: none; /* Oculto inicialmente */
   }
 
   .lesson-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 0;
-    color: #475569;
+    padding: 4px 0; /* Padding vertical para los items de lección */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Alineación de los ítems al centro */
   }
 
   .lesson-icon {
-    color: #64748b;
+    margin-right: 8px; /* Margen derecho para el icono */
   }
 
   /* ==========================================
@@ -1060,7 +1043,6 @@ const courseData = {
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
   }
 
-
   .copy-icon {
     font-size: 1.2rem;
   }
@@ -1153,3 +1135,25 @@ const courseData = {
     }
   }
 </style>
+
+<script>
+  // Selecciona todos los encabezados de módulos
+  const headers = document.querySelectorAll('.module-header');
+
+  // Función para alternar la visibilidad del contenido
+  function toggleAccordion() {
+    const moduleContent = this.nextElementSibling; // Selecciona el contenido siguiente al encabezado
+
+    // Alterna la clase para mostrar/ocultar con efecto
+    moduleContent.style.display = moduleContent.style.display === 'block' ? 'none' : 'block';
+
+    // Cambia el icono del acordeón
+    const icon = this.querySelector('.accordion-icon');
+    icon.textContent = icon.textContent === '▼' ? '▲' : '▼';
+  }
+
+  // Añade un listener a cada encabezado
+  headers.forEach(header => {
+    header.addEventListener('click', toggleAccordion);
+  });
+</script>
