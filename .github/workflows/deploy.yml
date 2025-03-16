@@ -24,7 +24,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install three
           npm install astro-icon
           npm install
 
@@ -46,3 +45,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

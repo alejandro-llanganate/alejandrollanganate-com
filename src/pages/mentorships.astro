@@ -43,9 +43,10 @@ const pricing = [
     name: "Solo estudiantes de pregrado",
     price: "$120",
     original: "$200 (Anual)",
-    popular: false,
-    season: "christmas",
+    popular: true,
+    season: "spring",
     features: [
+      "🌸 Oferta especial hasta el 28 de marzo 🌸",
       "Horario 1: Sábados y domingos 07h00 PM a 08h00 PM",
       "Horario 2: Martes y jueves 07h00 AM a 08h00 AM",
       "8 mentorías mensuales, 2 semanales en cualquier horario",
@@ -55,7 +56,7 @@ const pricing = [
       "Es posible otro horario pero con un asistente adicional",
     ],
     button: {
-      text: "Regístrate ya",
+      text: "¡Aprovecha la oferta!",
       link: "/register-mentorship-promo",
     },
   },
@@ -291,7 +292,7 @@ const pricing = [
 
   document.addEventListener("DOMContentLoaded", function () {
     const registerBtn = document.querySelector(
-      'button[id="christmas-register"][data-season="christmas"]',
+      'button[id="spring-register"][data-season="spring"]',
     );
     const modal = document.getElementById("registrationModal");
     const closeBtn = document.getElementById("closeModal");
@@ -326,7 +327,7 @@ const pricing = [
         };
 
         const message =
-          `¡Hola! Me interesa la mentoría navideña 🎄\n\n` +
+          `¡Hola! Me interesa la mentoría de primavera 🌸\n\n` +
           `*Datos del registro:*\n` +
           `Nombre: ${formData.nombre}\n` +
           `Apellido: ${formData.apellido}\n` +

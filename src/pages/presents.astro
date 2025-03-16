@@ -1,0 +1,308 @@
+import Layout from "@layouts/Layout.astro"; import Container from
+"@components/container.astro"; import Sectionhead from
+"@components/sectionhead.astro";
+
+<Layout title="Un regalo especial - Alejandro Llanganate">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Un regalo especial para ustedes</Fragment>
+      <Fragment slot="desc">
+        John y David, gracias por ser parte de mi camino
+      </Fragment>
+    </Sectionhead>
+
+    <div class="gift-container">
+      <div class="gift-card">
+        <div class="gift-header">
+          <h2>El aprendizaje es una de las cosas más lindas de la vida</h2>
+          <p>
+            Quiero agradecerles por conocerme y por todo lo que hemos compartido
+            juntos. El conocimiento es el regalo más valioso que podemos dar y
+            recibir.
+          </p>
+        </div>
+
+        <div class="gift-content">
+          <div class="platzi-logo">
+            <img
+              src="https://static.platzi.com/media/platzi-isotipo@2x.png"
+              alt="Platzi Logo"
+            />
+          </div>
+
+          <div class="gift-description">
+            <h3>¡Les regalo una membresía de Platzi!</h3>
+            <p>
+              Platzi es una plataforma con más de 1000 cursos en tecnología,
+              diseño, marketing, negocios y más. Con esta membresía tendrán
+              acceso ilimitado a todos los cursos por un año completo.
+            </p>
+
+            <ul class="gift-features">
+              <li><span class="icon">✓</span> Acceso a más de 1000 cursos</li>
+              <li><span class="icon">✓</span> Certificados de finalización</li>
+              <li><span class="icon">✓</span> Comunidad de aprendizaje</li>
+              <li>
+                <span class="icon">✓</span> Contenido actualizado constantemente
+              </li>
+              <li>
+                <span class="icon">✓</span> Profesores expertos en la industria
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="gift-form">
+          <h3>Para reclamar tu regalo, ingresa tu correo electrónico:</h3>
+          <form id="giftForm" class="form">
+            <div class="form-group">
+              <label for="name">Nombre:</label>
+              <select id="name" name="name" required>
+                <option value="">Selecciona tu nombre</option>
+                <option value="John">John</option>
+                <option value="David">David</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="tu@email.com"
+                required
+              />
+            </div>
+            <button type="submit" class="submit-btn"
+              >Reclamar mi membresía</button
+            >
+          </form>
+
+          <div id="successMessage" class="success-message hidden">
+            <h3>¡Felicidades! 🎉</h3>
+            <p>
+              Tu membresía de Platzi ha sido activada. Recibirás un correo con
+              los detalles de acceso.
+            </p>
+            <p>¡Disfruta aprendiendo!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("giftForm") as HTMLFormElement;
+    const successMessage = document.getElementById("successMessage");
+
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nameSelect = document.getElementById("name") as HTMLSelectElement;
+        const emailInput = document.getElementById("email") as HTMLInputElement;
+
+        if (nameSelect && emailInput) {
+          const name = nameSelect.value;
+          const email = emailInput.value;
+
+          // Aquí podrías enviar los datos a un servidor si lo necesitas
+          console.log(`Regalo reclamado por ${name} con email: ${email}`);
+
+          // Mostrar mensaje de éxito
+          if (successMessage) {
+            form.classList.add("hidden");
+            successMessage.classList.remove("hidden");
+          }
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .gift-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0 4rem;
+  }
+
+  .gift-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .gift-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .gift-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .gift-header p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .gift-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .gift-content {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
+  .platzi-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121f3d;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .platzi-logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gift-description {
+    flex: 1;
+  }
+
+  .gift-description h3 {
+    font-size: 1.5rem;
+    color: #121f3d;
+    margin-bottom: 1rem;
+  }
+
+  .gift-description p {
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .gift-features {
+    list-style: none;
+    padding: 0;
+  }
+
+  .gift-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    color: #444;
+  }
+
+  .icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: #98ca3f;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 0.8rem;
+  }
+
+  .gift-form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .gift-form h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 500;
+    color: #555;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    background-color: #98ca3f;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+  }
+
+  .submit-btn:hover {
+    background-color: #86b32d;
+  }
+
+  .success-message {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f0f9eb;
+    border-radius: 0.75rem;
+    border: 1px solid #98ca3f;
+  }
+
+  .success-message h3 {
+    color: #67c23a;
+    margin-bottom: 1rem;
+  }
+
+  .success-message p {
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>

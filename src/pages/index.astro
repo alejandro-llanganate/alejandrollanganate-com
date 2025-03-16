@@ -8,10 +8,11 @@ import Layout from "@layouts/Layout.astro";
 import Certifications from '@components/certifications.astro'
 ---
 
-<Layout title="">
+<Layout title="Alejandro Llanganate - Desarrollador & Mentor">
   <Container>
     <Hero />
   </Container>
+
   <div class="w-full">
     <img
       src="https://i.ibb.co/NWR0KRG/portada.png"
@@ -20,19 +21,183 @@ import Certifications from '@components/certifications.astro'
       style="width: 100%; max-width: 100%;"
     />
   </div>
+
   <Container>
     <Features />
     <Logos />
+
+    <!-- Proyectos Destacados -->
+    <section class="projects-section py-16">
+      <h2 class="text-4xl font-bold text-center mb-8">Proyectos Destacados</h2>
+      
+      <!-- Zelify Project -->
+      <div class="project-card mb-12">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="project-info">
+            <h3 class="text-2xl font-semibold mb-4">Zelify</h3>
+            <p class="text-gray-600 mb-4">
+              Plataforma innovadora para la gestión y automatización de procesos empresariales.
+              Desarrollada con las últimas tecnologías y mejores prácticas de la industria.
+            </p>
+            <div class="tech-stack flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Node.js</span>
+              <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">GraphQL</span>
+            </div>
+            <a href="https://www.zelify.com" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              Visitar Proyecto
+            </a>
+          </div>
+          <div class="project-preview h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <iframe 
+              src="https://www.zelify.com" 
+              class="w-full h-full border-0"
+              title="Zelify Preview"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sistema de Planificación Académica Project -->
+      <div class="project-card mb-12">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="project-info">
+            <h3 class="text-2xl font-semibold mb-4">Sistema de Planificación Académica FIS-EPN</h3>
+            <p class="text-gray-600 mb-4">
+              Aplicación web desarrollada para la Facultad de Ingeniería de Sistemas de la Escuela Politécnica Nacional.
+              Permite la gestión eficiente de la planificación académica, horarios y recursos educativos.
+            </p>
+            <div class="tech-stack flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">TypeScript</span>
+              <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Angular</span>
+              <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Node.js</span>
+              <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">NestJS</span>
+            </div>
+            <div class="flex gap-4">
+              <a 
+                href="https://github.com/Trabajo-de-Titulacion" 
+                target="_blank" 
+                class="inline-block bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                Ver Repositorio
+              </a>
+              <a 
+                href="https://www.youtube.com/watch?v=QCW5FZ1Ud6s" 
+                target="_blank" 
+                class="inline-block bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                Ver Demo
+              </a>
+            </div>
+          </div>
+          <div class="project-preview h-[400px] rounded-lg overflow-hidden shadow-xl bg-gray-100">
+            <div class="relative w-full h-full">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/QCW5FZ1Ud6s"
+                title="Sistema de Planificación Académica Demo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="absolute inset-0">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <Certifications />
+
+    <!-- Estadísticas -->
+    <section class="stats-section py-16 bg-gray-50 rounded-2xl my-16">
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div class="stat-item">
+          <h3 class="text-4xl font-bold text-blue-600 counter" data-target="150">0</h3>
+          <p class="text-gray-600">Estudiantes Mentoreados</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="text-4xl font-bold text-green-600 counter" data-target="45">0</h3>
+          <p class="text-gray-600">Proyectos Completados</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="text-4xl font-bold text-purple-600 counter" data-target="8">0</h3>
+          <p class="text-gray-600">Años de Experiencia</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="text-4xl font-bold text-orange-600 counter" data-target="12">0</h3>
+          <p class="text-gray-600">Certificaciones</p>
+        </div>
+      </div>
+    </section>
+
     <Cta />
   </Container>
 </Layout>
 
+<script>
+  // Counter Animation
+  const animateCounter = (counter) => {
+    const target = parseInt(counter.getAttribute('data-target'));
+    const count = +counter.innerText;
+    const increment = target / 200;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(() => animateCounter(counter), 1);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  // Initialize when document is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.counter').forEach(counter => {
+            counter.innerText = '0';
+            animateCounter(counter);
+          });
+        }
+      });
+    });
+
+    document.querySelectorAll('.stats-section').forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>
+
 <style>
-  .mt-20 {
-    margin-top: 5rem; /* Aumenta el margen superior */
+  .project-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
   }
-  .mb-16 {
-    margin-bottom: 4rem; /* Aumenta el margen inferior */
+
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .stats-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .stat-item {
+    padding: 2rem;
+    transition: transform 0.3s ease;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 768px) {
+    .project-preview {
+      height: 300px;
+    }
   }
 </style>

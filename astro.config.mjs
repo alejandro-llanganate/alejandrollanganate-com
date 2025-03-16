@@ -21,11 +21,6 @@ export default defineConfig({
   vite: {
     build: {
       charset: 'utf8',
-    },
-    resolve: {
-      alias: {
-        'three': 'three/build/three.module.js'
-      }
     }
   }
 });

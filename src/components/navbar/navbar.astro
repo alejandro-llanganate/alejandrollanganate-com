@@ -7,7 +7,7 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 const menuitems: {
   title: string;
   path: string;
-  children?: { title: string; path: string }[];
+  children?: { title: string; path: string; badge?: boolean }[];
   badge?: boolean;
 }[] = [
   {
@@ -21,7 +21,7 @@ const menuitems: {
       { title: "Mentorías", path: "/mentorships" },
       { title: "Alumnis FIS", path: "/alumnis-fis" },
       { title: "Cursos", path: "/courses" },
-
+      { title: "Regalos Especiales", path: "/presents", badge: true },
     ],
   },
   {
