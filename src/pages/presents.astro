@@ -1,6 +1,12 @@
-import Layout from "@layouts/Layout.astro"; import Container from
-"@components/container.astro"; import Sectionhead from
-"@components/sectionhead.astro";
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
+---
+
+<Layout title="Presents">
+  <h1>Presents Page</h1>
+</Layout>
 
 <Layout title="Un regalo especial - Alejandro Llanganate">
   <Container>
@@ -94,22 +100,21 @@ import Layout from "@layouts/Layout.astro"; import Container from
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("giftForm") as HTMLFormElement;
+    const form = document.getElementById("giftForm");
     const successMessage = document.getElementById("successMessage");
 
     if (form) {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        const nameSelect = document.getElementById("name") as HTMLSelectElement;
-        const emailInput = document.getElementById("email") as HTMLInputElement;
+        const nameSelect = document.getElementById("name");
+        const emailInput = document.getElementById("email");
 
         if (nameSelect && emailInput) {
           const name = nameSelect.value;
           const email = emailInput.value;
 
-          // Aquí podrías enviar los datos a un servidor si lo necesitas
-          console.log(`Regalo reclamado por ${name} con email: ${email}`);
+          // Simple log without any external functions
 
           // Mostrar mensaje de éxito
           if (successMessage) {
