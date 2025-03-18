@@ -1,0 +1,221 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
+---
+
+<Layout title="Eventos - Alejandro Llanganate">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Próximos Eventos</Fragment>
+      <Fragment slot="desc">
+        Conciertos, talleres y presentaciones
+      </Fragment>
+    </Sectionhead>
+
+    <div class="event-container">
+      <div class="event-details">
+        <h2 class="event-title">Recital de piano: amour</h2>
+        <div class="event-subtitle">Un viaje musical a través del amor</div>
+
+        <div class="event-meta">
+          <div class="meta-item">
+            <span class="meta-label"><i class="fas fa-calendar"></i> Fecha:</span>
+            <span class="meta-value">Sábado, 14 de junio del 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label"><i class="fas fa-clock"></i> Hora:</span>
+            <span class="meta-value">06:00 PM</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label"><i class="fas fa-map-marker-alt"></i> Lugar:</span>
+            <span class="meta-value">Centro Larson</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label"><i class="fas fa-users"></i> Artistas:</span>
+            <span class="meta-value">Alejandro Llanganate & Cami Sacos</span>
+          </div>
+        </div>
+
+        <div class="event-description">
+          <h3>Sobre el recital</h3>
+          <p>
+            "Amour" es una exploración musical de las diferentes facetas del amor a través del piano. 
+            Desde piezas clásicas románticas hasta composiciones contemporáneas, este recital busca 
+            transmitir la profundidad y complejidad de uno de los sentimientos más universales.
+          </p>
+          <p>
+            El programa incluye obras de Chopin, Debussy, Einaudi y composiciones originales 
+            que llevarán al público por un viaje emocional único.
+          </p>
+
+          <h3>Programa</h3>
+          <ul class="program-list">
+            <li><span class="piece">Nocturne Op. 9 No. 2</span> - Frédéric Chopin</li>
+            <li><span class="piece">Clair de Lune</span> - Claude Debussy</li>
+            <li><span class="piece">Experience</span> - Ludovico Einaudi</li>
+            <li><span class="piece">River Flows in You</span> - Yiruma</li>
+            <li><span class="piece">Amour (Composición Original)</span> - Alejandro Llanganate</li>
+            <li><span class="piece">Reminiscencia</span> - Cami Sacos</li>
+          </ul>
+
+          <div class="ticket-section">
+            <h3>Entradas</h3>
+            <p>
+              Las entradas están disponibles en Buenplan.com.ec
+            </p>
+            <a href="https://buenplan.com.ec" target="_blank" class="ticket-button">
+              Comprar Entradas
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="more-events">
+      <h2>Otros eventos</h2>
+      <p class="empty-events">No hay más eventos programados por el momento.</p>
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  .event-container {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .event-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a202c;
+    text-transform: lowercase;
+  }
+
+  .event-subtitle {
+    font-size: 1.25rem;
+    color: #4a5568;
+    margin-top: -1rem;
+  }
+
+  .event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+    padding: 1.5rem;
+    background-color: #f7fafc;
+    border-radius: 12px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 640px) {
+    .meta-item {
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+  }
+
+  .meta-label {
+    font-weight: 600;
+    color: #4a5568;
+    min-width: 100px;
+  }
+
+  .meta-value {
+    color: #1a202c;
+  }
+
+  .event-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .event-description h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+  }
+
+  .event-description p {
+    color: #4a5568;
+    line-height: 1.6;
+  }
+
+  .program-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .program-list li {
+    padding: 0.75rem 1rem;
+    background-color: #f7fafc;
+    border-radius: 8px;
+    color: #4a5568;
+  }
+
+  .piece {
+    font-weight: 600;
+    color: #2d3748;
+  }
+
+  .ticket-section {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: #f7fafc;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .ticket-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3182ce;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .ticket-button:hover {
+    background-color: #2c5282;
+  }
+
+  .more-events {
+    margin: 4rem 0 2rem;
+    text-align: center;
+  }
+
+  .empty-events {
+    color: #718096;
+    font-style: italic;
+    margin-top: 1rem;
+  }
+</style>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
